@@ -25,12 +25,7 @@
     --shadow: 0 4px 24px rgba(47,56,134,0.10);
   }
 
-  body {
-    font-family: 'Montserrat', sans-serif;
-    background: #eef0fa;
-    min-height: 100vh;
-    color: var(--text);
-  }
+  body { font-family: 'Montserrat', sans-serif; background: #eef0fa; min-height: 100vh; color: var(--text); }
 
   header {
     background: var(--primary);
@@ -41,22 +36,15 @@
     justify-content: space-between;
     box-shadow: 0 2px 16px rgba(47,56,134,0.18);
   }
-
   header svg { height: 30px; width: auto; }
-
-  .tagline {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 13px;
-    color: rgba(255,255,255,0.6);
-    letter-spacing: 0.04em;
-  }
+  .tagline { font-family: 'Montserrat', sans-serif; font-size: 13px; color: rgba(255,255,255,0.6); letter-spacing: 0.04em; }
 
   .main {
     max-width: 1100px;
     margin: 0 auto;
     padding: 40px 24px 60px;
     display: grid;
-    grid-template-columns: 380px 1fr;
+    grid-template-columns: 390px 1fr;
     gap: 32px;
     align-items: start;
   }
@@ -80,14 +68,7 @@
   }
 
   .field { margin-bottom: 20px; }
-
-  label {
-    display: block;
-    font-size: 13px;
-    font-weight: 500;
-    color: var(--text);
-    margin-bottom: 6px;
-  }
+  label { display: block; font-size: 13px; font-weight: 500; color: var(--text); margin-bottom: 6px; }
 
   input[type="text"], input[type="url"] {
     width: 100%;
@@ -101,46 +82,56 @@
     transition: border-color 0.2s, box-shadow 0.2s;
     outline: none;
   }
-
   input[type="text"]:focus, input[type="url"]:focus {
     border-color: var(--secondary);
     box-shadow: 0 0 0 3px rgba(105,118,231,0.12);
     background: #fff;
   }
 
-  .divider {
-    height: 1px;
-    background: var(--border);
-    margin: 22px 0;
-  }
+  .divider { height: 1px; background: var(--border); margin: 22px 0; }
 
-  .color-row {
+  /* Shape toggle */
+  .shape-toggle { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+  .shape-btn {
     display: flex;
-    gap: 10px;
+    flex-direction: column;
     align-items: center;
-    margin-bottom: 16px;
+    gap: 8px;
+    padding: 14px 10px 12px;
+    border: 2px solid var(--border);
+    border-radius: 12px;
+    background: var(--panel);
+    cursor: pointer;
+    transition: border-color 0.2s, background 0.2s, box-shadow 0.2s;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--muted);
   }
-
-  .color-label {
-    font-size: 13px;
-    font-weight: 500;
-    color: var(--text);
-    min-width: 62px;
+  .shape-btn:hover { border-color: var(--secondary); }
+  .shape-btn.active {
+    border-color: var(--primary);
+    background: #eef0fb;
+    color: var(--primary);
+    box-shadow: 0 2px 10px rgba(47,56,134,0.10);
   }
+  .shape-icon { width: 48px; height: 50px; display: flex; align-items: center; justify-content: center; }
+  .shape-icon svg { width: 48px; height: 50px; }
 
+  /* Circular options */
+  .circular-options { display: none; margin-top: 18px; }
+  .circular-options.visible { display: block; }
+
+  /* Colour rows */
+  .color-row { display: flex; gap: 10px; align-items: center; margin-bottom: 16px; }
+  .color-label { font-size: 13px; font-weight: 500; color: var(--text); min-width: 72px; }
   input[type="color"] {
     -webkit-appearance: none;
     width: 38px; height: 38px;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    padding: 2px;
-    background: none;
+    border: none; border-radius: 8px; cursor: pointer; padding: 2px; background: none;
   }
-
   input[type="color"]::-webkit-color-swatch-wrapper { padding: 0; border-radius: 6px; }
   input[type="color"]::-webkit-color-swatch { border: none; border-radius: 6px; }
-
   .hex-input {
     flex: 1;
     padding: 9px 12px;
@@ -153,35 +144,16 @@
     outline: none;
     transition: border-color 0.2s;
   }
+  .hex-input:focus { border-color: var(--secondary); background: #fff; }
 
-  .hex-input:focus {
-    border-color: var(--secondary);
-    background: #fff;
-  }
-
-  .slider-row {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin-bottom: 14px;
-  }
-
-  .slider-label {
-    font-size: 13px;
-    font-weight: 500;
-    min-width: 110px;
-  }
-
+  /* Sliders */
+  .slider-row { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
+  .slider-label { font-size: 13px; font-weight: 500; min-width: 110px; }
   input[type="range"] {
     -webkit-appearance: none;
-    flex: 1;
-    height: 4px;
-    border-radius: 2px;
-    background: var(--light);
-    outline: none;
-    cursor: pointer;
+    flex: 1; height: 4px;
+    border-radius: 2px; background: var(--light); outline: none; cursor: pointer;
   }
-
   input[type="range"]::-webkit-slider-thumb {
     -webkit-appearance: none;
     width: 18px; height: 18px;
@@ -191,49 +163,33 @@
     box-shadow: 0 1px 4px rgba(105,118,231,0.35);
     cursor: pointer;
   }
+  .slider-val { font-size: 12px; color: var(--muted); min-width: 32px; text-align: right; font-variant-numeric: tabular-nums; }
 
-  .slider-val {
-    font-size: 12px;
-    color: var(--muted);
-    min-width: 28px;
-    text-align: right;
-    font-variant-numeric: tabular-nums;
-  }
-
+  /* Upload */
   .upload-zone {
     border: 2px dashed var(--border);
-    border-radius: 10px;
-    padding: 18px;
-    text-align: center;
-    cursor: pointer;
+    border-radius: 10px; padding: 18px;
+    text-align: center; cursor: pointer;
     transition: border-color 0.2s, background 0.2s;
     position: relative;
   }
-
   .upload-zone:hover { border-color: var(--secondary); background: #f7f8fd; }
-
-  .upload-zone input[type="file"] {
-    position: absolute; inset: 0; opacity: 0; cursor: pointer; width: 100%; height: 100%;
-  }
-
+  .upload-zone input[type="file"] { position: absolute; inset: 0; opacity: 0; cursor: pointer; width: 100%; height: 100%; }
   .upload-icon { font-size: 28px; margin-bottom: 6px; }
-
   .upload-zone p { font-size: 13px; color: var(--muted); }
   .upload-zone .sub { font-size: 11px; margin-top: 2px; color: #aaa; }
 
   .logo-preview {
     display: flex; align-items: center; gap: 10px;
-    margin-top: 10px;
-    padding: 8px 12px;
-    background: var(--panel);
-    border-radius: 8px;
-    font-size: 13px;
+    margin-top: 10px; padding: 8px 12px;
+    background: var(--panel); border-radius: 8px; font-size: 13px;
   }
-
   .logo-preview img { width: 32px; height: 32px; object-fit: contain; border-radius: 4px; }
   .logo-preview .rm { cursor: pointer; color: var(--muted); font-size: 16px; margin-left: auto; }
   .logo-preview .rm:hover { color: #e55; }
+  .logo-size-row { margin-top: 10px; }
 
+  /* Generate button */
   .gen-btn {
     width: 100%;
     padding: 14px;
@@ -250,132 +206,62 @@
     box-shadow: 0 4px 14px rgba(47,56,134,0.22);
     margin-top: 6px;
   }
-
   .gen-btn:hover { background: var(--secondary); box-shadow: 0 6px 20px rgba(105,118,231,0.32); }
   .gen-btn:active { transform: scale(0.98); }
+  .gen-btn:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
 
   /* Preview panel */
-  .preview-panel {
-    position: sticky;
-    top: 24px;
-  }
-
+  .preview-panel { position: sticky; top: 24px; }
   .preview-box {
     background: var(--white);
     border-radius: var(--radius);
     box-shadow: var(--shadow);
     border: 1px solid var(--border);
     padding: 36px 28px 28px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    display: flex; flex-direction: column; align-items: center;
   }
-
   .preview-label {
     font-family: 'Montserrat', sans-serif;
-    font-size: 11px;
-    font-weight: 900;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--muted);
-    margin-bottom: 24px;
-    align-self: flex-start;
+    font-size: 11px; font-weight: 900;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--muted); margin-bottom: 24px; align-self: flex-start;
   }
-
   #qr-container {
     position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 300px;
-    height: 300px;
+    display: flex; align-items: center; justify-content: center;
+    width: 300px; height: 300px;
   }
-
   #qr-canvas-wrapper {
     width: 100%; height: 100%;
     display: flex; align-items: center; justify-content: center;
   }
-
   #qr-canvas-wrapper canvas { display: block; }
-
-  #logo-overlay {
-    position: absolute;
-    top: 50%; left: 50%;
-    transform: translate(-50%, -50%);
-    width: 60px; height: 60px;
-    border-radius: 10px;
-    background: #fff;
-    display: flex; align-items: center; justify-content: center;
-    padding: 6px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.12);
-  }
-
-  #logo-overlay img {
-    max-width: 100%; max-height: 100%;
-    object-fit: contain;
-  }
 
   .placeholder {
     width: 280px; height: 280px;
-    border-radius: 12px;
-    background: var(--panel);
+    border-radius: 12px; background: var(--panel);
     display: flex; flex-direction: column; align-items: center; justify-content: center;
-    gap: 12px;
-    color: var(--muted);
+    gap: 12px; color: var(--muted);
   }
-
   .placeholder-icon { font-size: 48px; opacity: 0.4; }
   .placeholder p { font-size: 13px; text-align: center; max-width: 160px; line-height: 1.5; }
 
-  .download-row {
-    display: flex;
-    gap: 10px;
-    margin-top: 24px;
-    width: 100%;
-  }
-
+  .download-row { display: flex; gap: 10px; margin-top: 24px; width: 100%; }
   .dl-btn {
-    flex: 1;
-    padding: 12px 10px;
+    flex: 1; padding: 12px 10px;
     border-radius: 10px;
     font-family: 'Montserrat', sans-serif;
-    font-size: 13px;
-    font-weight: 700;
-    cursor: pointer;
-    transition: all 0.2s;
-    letter-spacing: 0.01em;
+    font-size: 13px; font-weight: 700;
+    cursor: pointer; transition: all 0.2s; letter-spacing: 0.01em;
     display: flex; align-items: center; justify-content: center; gap: 6px;
   }
-
-  .dl-btn.png {
-    background: var(--accent);
-    color: var(--dark);
-    border: none;
-    box-shadow: 0 3px 10px rgba(255,184,85,0.28);
-  }
+  .dl-btn.png { background: var(--accent); color: var(--dark); border: none; box-shadow: 0 3px 10px rgba(255,184,85,0.28); }
   .dl-btn.png:hover { background: #ffc36a; box-shadow: 0 5px 16px rgba(255,184,85,0.4); }
-
-  .dl-btn.svg-btn {
-    background: transparent;
-    border: 2px solid var(--primary);
-    color: var(--primary);
-  }
+  .dl-btn.svg-btn { background: transparent; border: 2px solid var(--primary); color: var(--primary); }
   .dl-btn.svg-btn:hover { background: var(--primary); color: #fff; }
-
   .dl-btn:disabled { opacity: 0.4; cursor: not-allowed; }
 
-  .info-chip {
-    margin-top: 14px;
-    font-size: 11.5px;
-    color: var(--muted);
-    text-align: center;
-    line-height: 1.5;
-  }
-
-  /* Logo size slider row */
-  .logo-size-row {
-    margin-top: 10px;
-  }
+  .info-chip { margin-top: 14px; font-size: 11.5px; color: var(--muted); text-align: center; line-height: 1.5; }
 
   @media (max-width: 800px) {
     .main { grid-template-columns: 1fr; }
@@ -405,12 +291,52 @@
 
 <div class="main">
 
-  <!-- Left: Controls -->
+  <!-- Left panel -->
   <div class="panel">
+
     <div class="section-title">Destination URL</div>
     <div class="field">
       <label for="url-input">URL</label>
       <input type="url" id="url-input" placeholder="https://yourwebsite.com" autocomplete="off">
+    </div>
+
+    <div class="divider"></div>
+    <div class="section-title">Shape</div>
+
+    <div class="shape-toggle">
+      <button class="shape-btn active" id="btn-standard" onclick="setShape('standard')">
+        <div class="shape-icon">
+          <svg viewBox="0 0 369 382" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="34.5" y="40.5" width="301" height="301" rx="28.625" stroke="currentColor" stroke-width="24"/>
+            <path d="M103.75 123.292V168.431C103.75 175.924 109.799 181.972 117.292 181.972H162.431C169.924 181.972 175.972 175.924 175.972 168.431V123.292C175.972 115.799 169.924 109.75 162.431 109.75H117.292C109.799 109.75 103.75 115.799 103.75 123.292ZM121.806 127.806H157.917V163.917H121.806V127.806ZM103.75 258.708C103.75 266.201 109.799 272.25 117.292 272.25H162.431C169.924 272.25 175.972 266.201 175.972 258.708V213.569C175.972 206.076 169.924 200.028 162.431 200.028H117.292C109.799 200.028 103.75 206.076 103.75 213.569V258.708ZM121.806 218.083H157.917V254.194H121.806V218.083ZM252.708 109.75H207.569C200.076 109.75 194.028 115.799 194.028 123.292V168.431C194.028 175.924 200.076 181.972 207.569 181.972H252.708C260.201 181.972 266.25 175.924 266.25 168.431V123.292C266.25 115.799 260.201 109.75 252.708 109.75ZM248.194 163.917H212.083V127.806H248.194V163.917ZM194.028 200.028H212.083V218.083H194.028V200.028ZM212.083 218.083H230.139V236.139H212.083V218.083ZM194.028 236.139H212.083V254.194H194.028V236.139ZM230.139 236.139H248.194V254.194H230.139V236.139ZM248.194 254.194H266.25V272.25H248.194V254.194ZM212.083 254.194H230.139V272.25H212.083V254.194ZM230.139 200.028H248.194V218.083H230.139V200.028ZM248.194 218.083H266.25V236.139H248.194V218.083Z" fill="currentColor"/>
+          </svg>
+        </div>
+        Standard
+      </button>
+      <button class="shape-btn" id="btn-circular" onclick="setShape('circular')">
+        <div class="shape-icon">
+          <svg viewBox="0 0 369 382" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M103.75 123.292V168.431C103.75 175.924 109.799 181.972 117.292 181.972H162.431C169.924 181.972 175.972 175.924 175.972 168.431V123.292C175.972 115.799 169.924 109.75 162.431 109.75H117.292C109.799 109.75 103.75 115.799 103.75 123.292ZM121.806 127.806H157.917V163.917H121.806V127.806ZM103.75 258.708C103.75 266.201 109.799 272.25 117.292 272.25H162.431C169.924 272.25 175.972 266.201 175.972 258.708V213.569C175.972 206.076 169.924 200.028 162.431 200.028H117.292C109.799 200.028 103.75 206.076 103.75 213.569V258.708ZM121.806 218.083H157.917V254.194H121.806V218.083ZM252.708 109.75H207.569C200.076 109.75 194.028 115.799 194.028 123.292V168.431C194.028 175.924 200.076 181.972 207.569 181.972H252.708C260.201 181.972 266.25 175.924 266.25 168.431V123.292C266.25 115.799 260.201 109.75 252.708 109.75ZM248.194 163.917H212.083V127.806H248.194V163.917ZM194.028 200.028H212.083V218.083H194.028V200.028ZM212.083 218.083H230.139V236.139H212.083V218.083ZM194.028 236.139H212.083V254.194H194.028V236.139ZM230.139 236.139H248.194V254.194H230.139V236.139ZM248.194 254.194H266.25V272.25H248.194V254.194ZM212.083 254.194H230.139V272.25H212.083V254.194ZM230.139 200.028H248.194V218.083H230.139V200.028ZM248.194 218.083H266.25V236.139H248.194V218.083Z" fill="currentColor"/>
+            <circle cx="185" cy="191" r="150.5" stroke="currentColor" stroke-width="24"/>
+          </svg>
+        </div>
+        Circular
+      </button>
+    </div>
+
+    <!-- Ring options (circular only) -->
+    <div class="circular-options" id="circular-options">
+      <div class="section-title" style="margin-top:18px">Ring</div>
+      <div class="color-row">
+        <span class="color-label">Ring colour</span>
+        <input type="color" id="ring-color-pick" value="#2F3886">
+        <input type="text" class="hex-input" id="ring-hex" value="#2F3886" maxlength="7" placeholder="#2F3886">
+      </div>
+      <div class="slider-row">
+        <span class="slider-label">Ring width</span>
+        <input type="range" id="ring-width" min="4" max="24" value="10" step="1">
+        <span class="slider-val" id="ring-width-val">10px</span>
+      </div>
     </div>
 
     <div class="divider"></div>
@@ -477,7 +403,6 @@
           <p>Enter a URL and click Generate to create your TapScan Code</p>
         </div>
         <div id="qr-canvas-wrapper" style="display:none"></div>
-        <div id="logo-overlay" style="display:none"></div>
       </div>
       <div class="download-row">
         <button class="dl-btn png" id="dl-png" disabled>⬇ Download PNG</button>
@@ -490,99 +415,96 @@
 </div>
 
 <script>
-// State
+// ─── State ────────────────────────────────────────────────────────────────────
 let state = {
   url: '',
-  fgColor: '#2F3886',
-  bgColor: '#FFFFFF',
-  cornerR: 0,
-  eyeR: 0,
-  logoDataURL: null,
-  logoName: '',
+  shape: 'standard',
+  fgColor:    '#2F3886',
+  bgColor:    '#FFFFFF',
+  ringColor:  '#2F3886',
+  ringWidth:  10,
+  cornerR:    0,
+  eyeR:       0,
+  logoDataURL:  null,
+  logoName:     '',
   logoNaturalW: null,
   logoNaturalH: null,
-  logoSize: 20,
+  logoSize:   20,
 };
 
+let currentMatrix = null;
+let currentModuleCount = 0;
+
+// ─── Helpers ──────────────────────────────────────────────────────────────────
 function isValidHex(h) { return /^#[0-9a-fA-F]{6}$/.test(h); }
 
-// Colour pickers
-const fgPick = document.getElementById('fg-color-pick');
-const bgPick = document.getElementById('bg-color-pick');
-const fgHex  = document.getElementById('fg-hex');
-const bgHex  = document.getElementById('bg-hex');
+function bindColorPair(pickId, hexId, key) {
+  const pick = document.getElementById(pickId);
+  const hex  = document.getElementById(hexId);
+  pick.addEventListener('input', () => { state[key] = pick.value; hex.value = pick.value; rerender(); });
+  hex.addEventListener('input', () => {
+    if(isValidHex(hex.value)) { state[key] = hex.value; pick.value = hex.value; rerender(); }
+  });
+}
+bindColorPair('fg-color-pick',   'fg-hex',   'fgColor');
+bindColorPair('bg-color-pick',   'bg-hex',   'bgColor');
+bindColorPair('ring-color-pick', 'ring-hex', 'ringColor');
 
-fgPick.addEventListener('input', () => { state.fgColor = fgPick.value; fgHex.value = fgPick.value; rerender(); });
-bgPick.addEventListener('input', () => { state.bgColor = bgPick.value; bgHex.value = bgPick.value; rerender(); });
+function bindSlider(id, valId, key, suffix) {
+  const el = document.getElementById(id);
+  el.addEventListener('input', () => {
+    state[key] = +el.value;
+    document.getElementById(valId).textContent = el.value + suffix;
+    rerender();
+  });
+}
+bindSlider('corner-r',   'corner-r-val',   'cornerR',   '%');
+bindSlider('eye-r',      'eye-r-val',      'eyeR',      '%');
+bindSlider('ring-width', 'ring-width-val', 'ringWidth', 'px');
+bindSlider('logo-size',  'logo-size-val',  'logoSize',  '%');
 
-fgHex.addEventListener('input', () => {
-  const v = fgHex.value;
-  if(isValidHex(v)) { state.fgColor = v; fgPick.value = v; rerender(); }
-});
-bgHex.addEventListener('input', () => {
-  const v = bgHex.value;
-  if(isValidHex(v)) { state.bgColor = v; bgPick.value = v; rerender(); }
-});
-
-// Sliders
-const cornerSlider = document.getElementById('corner-r');
-const eyeSlider    = document.getElementById('eye-r');
-const logoSizeSlider = document.getElementById('logo-size');
-
-cornerSlider.addEventListener('input', () => {
-  state.cornerR = +cornerSlider.value;
-  document.getElementById('corner-r-val').textContent = state.cornerR + '%';
+// ─── Shape toggle ─────────────────────────────────────────────────────────────
+function setShape(s) {
+  state.shape = s;
+  document.getElementById('btn-standard').classList.toggle('active', s === 'standard');
+  document.getElementById('btn-circular').classList.toggle('active', s === 'circular');
+  document.getElementById('circular-options').classList.toggle('visible', s === 'circular');
   rerender();
-});
-eyeSlider.addEventListener('input', () => {
-  state.eyeR = +eyeSlider.value;
-  document.getElementById('eye-r-val').textContent = state.eyeR + '%';
-  rerender();
-});
-logoSizeSlider.addEventListener('input', () => {
-  state.logoSize = +logoSizeSlider.value;
-  document.getElementById('logo-size-val').textContent = state.logoSize + '%';
-  rerender();
-});
+}
 
-// Logo upload
-const logoFile = document.getElementById('logo-file');
-logoFile.addEventListener('change', () => {
-  const file = logoFile.files[0];
+// ─── Logo upload ──────────────────────────────────────────────────────────────
+document.getElementById('logo-file').addEventListener('change', function() {
+  const file = this.files[0];
   if(!file) return;
   const reader = new FileReader();
   reader.onload = (e) => {
     state.logoDataURL = e.target.result;
     state.logoName = file.name;
-    // Read natural dimensions before storing
-    const tempImg = new Image();
-    tempImg.onload = () => {
-      state.logoNaturalW = tempImg.naturalWidth || tempImg.width || 1;
-      state.logoNaturalH = tempImg.naturalHeight || tempImg.height || 1;
+    const tmp = new Image();
+    tmp.onload = () => {
+      state.logoNaturalW = tmp.naturalWidth  || tmp.width  || 1;
+      state.logoNaturalH = tmp.naturalHeight || tmp.height || 1;
       document.getElementById('logo-thumb').src = e.target.result;
       document.getElementById('logo-name').textContent = file.name;
       document.getElementById('logo-preview-row').style.display = 'flex';
       document.getElementById('logo-size-row').style.display = 'block';
       rerender();
     };
-    tempImg.src = e.target.result;
+    tmp.src = e.target.result;
   };
   reader.readAsDataURL(file);
 });
 
 document.getElementById('logo-remove').addEventListener('click', () => {
-  state.logoDataURL = null;
-  state.logoName = '';
-  state.logoNaturalW = null;
-  state.logoNaturalH = null;
-  logoFile.value = '';
+  state.logoDataURL = null; state.logoName = '';
+  state.logoNaturalW = null; state.logoNaturalH = null;
+  document.getElementById('logo-file').value = '';
   document.getElementById('logo-preview-row').style.display = 'none';
   document.getElementById('logo-size-row').style.display = 'none';
-  document.getElementById('logo-overlay').style.display = 'none';
   rerender();
 });
 
-// Generate button
+// ─── Generate ─────────────────────────────────────────────────────────────────
 document.getElementById('gen-btn').addEventListener('click', () => {
   const url = document.getElementById('url-input').value.trim();
   if(!url) { alert('Please enter a URL first.'); return; }
@@ -590,89 +512,56 @@ document.getElementById('gen-btn').addEventListener('click', () => {
   generateQR();
 });
 
-// --- QR Generation (custom canvas renderer) ---
-// We use qrcodejs to get the matrix, then draw manually for full style control
-
 function getQRMatrix(text) {
   return new Promise((resolve) => {
     const tmp = document.createElement('div');
-    tmp.style.display = 'none';
+    tmp.style.cssText = 'position:fixed;opacity:0;pointer-events:none;left:-9999px;top:-9999px';
     document.body.appendChild(tmp);
-    const qr = new QRCode(tmp, {
-      text: text,
-      width: 256, height: 256,
-      correctLevel: QRCode.CorrectLevel.H
-    });
-    // qrcodejs draws on a canvas inside tmp
+    const qr = new QRCode(tmp, { text, width: 256, height: 256, correctLevel: QRCode.CorrectLevel.H });
     setTimeout(() => {
       const canvas = tmp.querySelector('canvas');
       if(!canvas) { document.body.removeChild(tmp); resolve(null); return; }
-      // Extract module matrix by reading pixels
       const ctx = canvas.getContext('2d');
       const size = canvas.width;
       const imgData = ctx.getImageData(0, 0, size, size);
-      // qr module count
       const moduleCount = qr._oQRCode ? qr._oQRCode.moduleCount : 33;
       const cellSize = size / moduleCount;
       const matrix = [];
-      for(let r=0; r<moduleCount; r++) {
+      for(let r = 0; r < moduleCount; r++) {
         matrix[r] = [];
-        for(let c=0; c<moduleCount; c++) {
-          const px = Math.floor(c * cellSize + cellSize/2);
-          const py = Math.floor(r * cellSize + cellSize/2);
-          const idx = (py * size + px) * 4;
-          matrix[r][c] = imgData.data[idx] < 128; // true = dark
+        for(let c = 0; c < moduleCount; c++) {
+          const px = Math.floor(c * cellSize + cellSize / 2);
+          const py = Math.floor(r * cellSize + cellSize / 2);
+          matrix[r][c] = imgData.data[(py * size + px) * 4] < 128;
         }
       }
       document.body.removeChild(tmp);
       resolve({ matrix, moduleCount });
-    }, 100);
+    }, 120);
   });
 }
 
-let currentMatrix = null;
-let currentModuleCount = 0;
-
 async function generateQR() {
   const btn = document.getElementById('gen-btn');
-  btn.textContent = 'Generating…';
-  btn.disabled = true;
-
+  btn.textContent = 'Generating…'; btn.disabled = true;
   try {
     const result = await getQRMatrix(state.url);
-    if(!result) throw new Error('Failed to generate QR');
-    currentMatrix = result.matrix;
+    if(!result) throw new Error();
+    currentMatrix      = result.matrix;
     currentModuleCount = result.moduleCount;
     renderQR();
     document.getElementById('dl-png').disabled = false;
     document.getElementById('dl-svg').disabled = false;
-  } catch(e) {
-    alert('Could not generate QR code. Please check the URL.');
-  }
-
-  btn.textContent = 'Generate TapScan Code →';
-  btn.disabled = false;
+  } catch(e) { alert('Could not generate QR code. Please check the URL.'); }
+  btn.textContent = 'Generate TapScan Code →'; btn.disabled = false;
 }
 
-function rerender() {
-  if(currentMatrix) renderQR();
-}
+function rerender() { if(currentMatrix) renderQR(); }
 
-// Eye/finder pattern positions (top-left of each 7x7 finder)
+// ─── Drawing helpers ──────────────────────────────────────────────────────────
 function isFinderPattern(r, c, n) {
-  // top-left, top-right, bottom-left finders
-  const finders = [
-    {r0:0, c0:0},
-    {r0:0, c0:n-7},
-    {r0:n-7, c0:0},
-  ];
-  return finders.some(f => r>=f.r0 && r<f.r0+7 && c>=f.c0 && c<f.c0+7);
-}
-
-function isAlignmentPattern(r, c, n) {
-  // rough check: the 5x5 area around typical alignment position for common QR versions
-  // For simplicity, skip and treat as normal data
-  return false;
+  return [{r0:0,c0:0},{r0:0,c0:n-7},{r0:n-7,c0:0}]
+    .some(f => r>=f.r0 && r<f.r0+7 && c>=f.c0 && c<f.c0+7);
 }
 
 function drawRoundRect(ctx, x, y, w, h, r) {
@@ -686,131 +575,49 @@ function drawRoundRect(ctx, x, y, w, h, r) {
   ctx.closePath();
 }
 
-function renderQR() {
-  const matrix = currentMatrix;
-  const n = currentModuleCount;
-  if(!matrix) return;
-
-  const PAD = 40;
-  const CELL = 10;
-  const SIZE = n * CELL;
-  const TOTAL = SIZE + PAD * 2;
-
-  const canvas = document.createElement('canvas');
-  canvas.width = canvas.height = TOTAL;
-  const ctx = canvas.getContext('2d');
-
-  // Background
-  ctx.fillStyle = state.bgColor;
-  ctx.fillRect(0, 0, TOTAL, TOTAL);
-
-  const fg = state.fgColor;
+// Draws QR modules onto ctx, with an optional x/y offset (for when PAD is applied externally)
+function drawQRModules(ctx, offsetX, offsetY, CELL) {
+  const matrix    = currentMatrix;
+  const n         = currentModuleCount;
+  const fg        = state.fgColor;
   const cornerRad = (state.cornerR / 100) * CELL * 0.5;
-  // eyeRad scaled to half the finder square size (7*CELL), so at 50% it's fully circular
-  const eyeRad    = (state.eyeR / 100) * (7 * CELL * 0.5);
+  const eyeRad    = (state.eyeR   / 100) * (7 * CELL * 0.5);
+
+  function drawFinder(r0, c0) {
+    const ox = offsetX + c0*CELL, oy = offsetY + r0*CELL, r = eyeRad;
+    ctx.fillStyle = fg;
+    drawRoundRect(ctx, ox, oy, 7*CELL, 7*CELL, r); ctx.fill();
+    ctx.fillStyle = state.bgColor;
+    drawRoundRect(ctx, ox+CELL, oy+CELL, 5*CELL, 5*CELL, Math.max(0, r-CELL*0.5)); ctx.fill();
+    ctx.fillStyle = fg;
+    drawRoundRect(ctx, ox+2*CELL, oy+2*CELL, 3*CELL, 3*CELL, Math.max(0, r-CELL)); ctx.fill();
+  }
+  drawFinder(0,0); drawFinder(0,n-7); drawFinder(n-7,0);
 
   ctx.fillStyle = fg;
-
-  // Draw finder patterns first (styled)
-  function drawFinder(r0, c0) {
-    const ox = PAD + c0 * CELL;
-    const oy = PAD + r0 * CELL;
-    // Outer 7x7 square
-    const r = eyeRad;
-    drawRoundRect(ctx, ox, oy, 7*CELL, 7*CELL, r);
+  for(let r = 0; r < n; r++) for(let c = 0; c < n; c++) {
+    if(isFinderPattern(r,c,n) || !matrix[r][c]) continue;
+    drawRoundRect(ctx, offsetX+c*CELL+0.5, offsetY+r*CELL+0.5, CELL-1, CELL-1, cornerRad);
     ctx.fill();
-    // White inner 5x5
-    ctx.fillStyle = state.bgColor;
-    drawRoundRect(ctx, ox+CELL, oy+CELL, 5*CELL, 5*CELL, Math.max(0, r-CELL*0.5));
-    ctx.fill();
-    // Dark inner 3x3
-    ctx.fillStyle = fg;
-    drawRoundRect(ctx, ox+2*CELL, oy+2*CELL, 3*CELL, 3*CELL, Math.max(0, r-CELL));
-    ctx.fill();
-  }
-
-  drawFinder(0, 0);
-  drawFinder(0, n-7);
-  drawFinder(n-7, 0);
-
-  // Draw data modules
-  for(let r=0; r<n; r++) {
-    for(let c=0; c<n; c++) {
-      if(isFinderPattern(r, c, n)) continue;
-      if(!matrix[r][c]) continue;
-      const x = PAD + c * CELL;
-      const y = PAD + r * CELL;
-      drawRoundRect(ctx, x+0.5, y+0.5, CELL-1, CELL-1, cornerRad);
-      ctx.fill();
-    }
-  }
-
-  // Logo overlay on canvas
-  const logoSize = state.logoSize / 100;
-  const logoPx = SIZE * logoSize;  // max dimension
-  const logoPad = 8;
-
-  function finalize(logoImg) {
-    if(logoImg) {
-      const iw = logoImg.naturalWidth || logoImg.width || 1;
-      const ih = logoImg.naturalHeight || logoImg.height || 1;
-      const aspect = iw / ih;
-
-      // Fit logo within a logoPx × logoPx bounding box, preserving aspect
-      let dw, dh;
-      if(aspect >= 1) {
-        dw = logoPx;
-        dh = logoPx / aspect;
-      } else {
-        dh = logoPx;
-        dw = logoPx * aspect;
-      }
-
-      // Backing box sized to the actual rendered logo + padding
-      const boxW = dw + logoPad * 2;
-      const boxH = dh + logoPad * 2;
-      const lx = PAD + (SIZE - boxW) / 2;
-      const ly = PAD + (SIZE - boxH) / 2;
-
-      ctx.fillStyle = state.bgColor;
-      roundRectPath(ctx, lx, ly, boxW, boxH, 8);
-      ctx.fill();
-
-      const imgX = lx + logoPad;
-      const imgY = ly + logoPad;
-      ctx.drawImage(logoImg, imgX, imgY, dw, dh);
-    }
-
-    // Show on page
-    const wrapper = document.getElementById('qr-canvas-wrapper');
-    wrapper.innerHTML = '';
-    const displayCanvas = document.createElement('canvas');
-    displayCanvas.width = displayCanvas.height = 300;
-    const dctx = displayCanvas.getContext('2d');
-    dctx.drawImage(canvas, 0, 0, 300, 300);
-    wrapper.appendChild(displayCanvas);
-
-    document.getElementById('placeholder').style.display = 'none';
-    document.getElementById('qr-canvas-wrapper').style.display = 'flex';
-    document.getElementById('logo-overlay').style.display = 'none';
-
-    // Store for download
-    window._qrCanvas = canvas;
-    window._qrMatrix = matrix;
-    window._qrN = n;
-  }
-
-  if(state.logoDataURL) {
-    const img = new Image();
-    img.onload = () => finalize(img);
-    img.onerror = () => finalize(null);
-    img.src = state.logoDataURL;
-  } else {
-    finalize(null);
   }
 }
 
-function roundRectPath(ctx, x, y, w, h, r) {
+function drawLogo(ctx, logoImg, cx, cy, maxPx) {
+  const logoPad = 8;
+  const iw = logoImg.naturalWidth  || logoImg.width  || 1;
+  const ih = logoImg.naturalHeight || logoImg.height || 1;
+  const aspect = iw / ih;
+  let dw, dh;
+  if(aspect >= 1) { dw = maxPx; dh = maxPx / aspect; }
+  else            { dh = maxPx; dw = maxPx * aspect; }
+  const boxW = dw + logoPad*2, boxH = dh + logoPad*2;
+  const lx = cx - boxW/2, ly = cy - boxH/2;
+  ctx.fillStyle = state.bgColor;
+  roundFill(ctx, lx, ly, boxW, boxH, 8);
+  ctx.drawImage(logoImg, lx+logoPad, ly+logoPad, dw, dh);
+}
+
+function roundFill(ctx, x, y, w, h, r) {
   r = Math.min(r, w/2, h/2);
   ctx.beginPath();
   ctx.moveTo(x+r, y);
@@ -819,125 +626,329 @@ function roundRectPath(ctx, x, y, w, h, r) {
   ctx.arcTo(x, y+h, x, y, r);
   ctx.arcTo(x, y, x+w, y, r);
   ctx.closePath();
+  ctx.fill();
 }
 
-// Downloads
+function showCanvas(canvas) {
+  const wrapper = document.getElementById('qr-canvas-wrapper');
+  wrapper.innerHTML = '';
+  const d = document.createElement('canvas');
+  d.width = d.height = 300;
+  d.getContext('2d').drawImage(canvas, 0, 0, 300, 300);
+  wrapper.appendChild(d);
+  document.getElementById('placeholder').style.display = 'none';
+  document.getElementById('qr-canvas-wrapper').style.display = 'flex';
+  window._qrCanvas = canvas;
+}
+
+// ─── Renderers ────────────────────────────────────────────────────────────────
+function renderQR() {
+  if(state.shape === 'circular') renderCircularQR();
+  else renderStandardQR();
+}
+
+function renderStandardQR() {
+  const n    = currentModuleCount;
+  const PAD  = 40, CELL = 10;
+  const SIZE  = n * CELL, TOTAL = SIZE + PAD*2;
+
+  const canvas = document.createElement('canvas');
+  canvas.width = canvas.height = TOTAL;
+  const ctx = canvas.getContext('2d');
+
+  ctx.fillStyle = state.bgColor;
+  ctx.fillRect(0, 0, TOTAL, TOTAL);
+  drawQRModules(ctx, PAD, PAD, CELL);
+
+  const logoMaxPx = SIZE * (state.logoSize / 100);
+  const cx = PAD + SIZE/2, cy = PAD + SIZE/2;
+
+  if(state.logoDataURL) {
+    const img = new Image();
+    img.onload  = () => { drawLogo(ctx, img, cx, cy, logoMaxPx); showCanvas(canvas); };
+    img.onerror = () => showCanvas(canvas);
+    img.src = state.logoDataURL;
+  } else {
+    showCanvas(canvas);
+  }
+}
+
+function renderCircularQR() {
+  const n    = currentModuleCount;
+  const CELL = 10;
+  const SIZE  = n * CELL;
+
+  // The circle diameter is driven by the QR size + a ring margin.
+  // We give the QR square a padding buffer inside the circle so the
+  // filler dots have room to blend at the corners.
+  const INNER_PAD = CELL * 1.5;          // gap between QR square edge and filler zone
+  // Inner radius: large enough that the QR square fits with padding
+  const innerR = Math.ceil(Math.sqrt(2) * (SIZE / 2 + INNER_PAD));
+  const ringW  = state.ringWidth;
+  const outerR = innerR + ringW;
+  const TOTAL  = Math.ceil(outerR * 2) + 8; // canvas size with small outer margin
+  const cx     = TOTAL / 2, cy = TOTAL / 2;
+
+  const canvas = document.createElement('canvas');
+  canvas.width = canvas.height = TOTAL;
+  const ctx = canvas.getContext('2d');
+
+  ctx.clearRect(0, 0, TOTAL, TOTAL);
+
+  // ── 1. Ring (donut) ──────────────────────────────────────────────
+  ctx.beginPath();
+  ctx.arc(cx, cy, outerR, 0, Math.PI * 2);
+  ctx.arc(cx, cy, innerR, 0, Math.PI * 2, true);
+  ctx.fillStyle = state.ringColor;
+  ctx.fill('evenodd');
+
+  // ── 2. BG fill inside inner circle ───────────────────────────────
+  ctx.beginPath();
+  ctx.arc(cx, cy, innerR, 0, Math.PI * 2);
+  ctx.fillStyle = state.bgColor;
+  ctx.fill();
+
+  // ── 3. Core QR square centred in circle ──────────────────────────
+  const qrOriginX = cx - SIZE / 2;
+  const qrOriginY = cy - SIZE / 2;
+  drawQRModules(ctx, qrOriginX, qrOriginY, CELL);
+
+  // ── 4. Filler dots in the 4 corner zones ─────────────────────────
+  // Same grid as the QR, same ~50% density throughout.
+  // Only fade in the outermost cell-width before the ring to avoid a
+  // hard circular cutoff — everywhere else density matches the real QR.
+  const seed = [...state.url].reduce((a, c) => (a * 31 + c.charCodeAt(0)) >>> 0, 1);
+  function seededRand(i) {
+    let x = Math.sin(seed + i) * 10000;
+    return x - Math.floor(x);
+  }
+
+  const cornerRad = (state.cornerR / 100) * CELL * 0.5;
+  ctx.fillStyle = state.fgColor;
+
+  const extra = Math.ceil(innerR / CELL) + 2;
+
+  let fillerIdx = 0;
+  for(let row = -extra; row < n + extra; row++) {
+    for(let col = -extra; col < n + extra; col++) {
+      // Skip cells strictly inside the QR square
+      if(row >= 0 && row < n && col >= 0 && col < n) continue;
+
+      // Module centre in canvas coords
+      const dotCx = qrOriginX + col * CELL + CELL / 2;
+      const dotCy = qrOriginY + row * CELL + CELL / 2;
+      const dist = Math.sqrt((dotCx - cx)**2 + (dotCy - cy)**2);
+
+      // Must sit inside the inner circle
+      if(dist > innerR - CELL * 0.5) continue;
+
+      // Uniform ~50% density matching real QR, tiny fade only in the
+      // last cell-width before the ring so the edge dissolves cleanly
+      const ringProximity = (innerR - CELL * 0.5 - dist) / CELL; // 0→1 over last cell
+      const fade = Math.min(1, ringProximity);
+      const probability = 0.50 * fade;
+
+      if(seededRand(fillerIdx++) < probability) {
+        drawRoundRect(ctx, qrOriginX + col*CELL + 0.5, qrOriginY + row*CELL + 0.5, CELL-1, CELL-1, cornerRad);
+        ctx.fill();
+      }
+    }
+  }
+
+  // ── 5. Logo ───────────────────────────────────────────────────────
+  const logoMaxPx = SIZE * (state.logoSize / 100);
+  if(state.logoDataURL) {
+    const img = new Image();
+    img.onload  = () => { drawLogo(ctx, img, cx, cy, logoMaxPx); showCanvas(canvas); };
+    img.onerror = () => showCanvas(canvas);
+    img.src = state.logoDataURL;
+  } else {
+    showCanvas(canvas);
+  }
+}
+
+// ─── Downloads ────────────────────────────────────────────────────────────────
 document.getElementById('dl-png').addEventListener('click', () => {
   if(!window._qrCanvas) return;
+  const src = window._qrCanvas;
+  const out = document.createElement('canvas');
+  out.width = src.width; out.height = src.height;
+  const ctx = out.getContext('2d');
+  // White background for printing
+  ctx.fillStyle = '#ffffff';
+  ctx.fillRect(0, 0, out.width, out.height);
+  ctx.drawImage(src, 0, 0);
   const link = document.createElement('a');
   link.download = 'tapscan-code.png';
-  link.href = window._qrCanvas.toDataURL('image/png');
+  link.href = out.toDataURL('image/png');
   link.click();
 });
 
 document.getElementById('dl-svg').addEventListener('click', async () => {
   if(!currentMatrix) return;
   const btn = document.getElementById('dl-svg');
-  btn.disabled = true;
-  btn.textContent = '⏳ Preparing…';
+  btn.disabled = true; btn.textContent = '⏳ Preparing…';
 
-  // Convert logo to PNG data URL so it embeds reliably in SVG (handles both PNG and SVG logos)
   let logoPngDataURL = null;
   if(state.logoDataURL && state.logoNaturalW && state.logoNaturalH) {
-    logoPngDataURL = await logoToPngDataURL(state.logoDataURL, state.logoNaturalW, state.logoNaturalH);
+    logoPngDataURL = await logoToPng(state.logoDataURL, state.logoNaturalW, state.logoNaturalH);
   }
 
-  const svgStr = buildSVG(logoPngDataURL);
-  const blob = new Blob([svgStr], {type:'image/svg+xml'});
-  const url = URL.createObjectURL(blob);
+  const svgStr = state.shape === 'circular'
+    ? buildCircularSVG(logoPngDataURL)
+    : buildStandardSVG(logoPngDataURL);
+
+  const blob = new Blob([svgStr], { type: 'image/svg+xml' });
+  const url  = URL.createObjectURL(blob);
   const link = document.createElement('a');
   link.download = 'tapscan-code.svg';
-  link.href = url;
-  link.click();
-  setTimeout(() => URL.revokeObjectURL(url), 1000);
-
-  btn.disabled = false;
-  btn.textContent = '⬇ Download SVG';
+  link.href = url; link.click();
+  setTimeout(() => URL.revokeObjectURL(url), 2000);
+  btn.disabled = false; btn.textContent = '⬇ Download SVG';
 });
 
-// Renders the logo image onto a canvas and returns a PNG data URL
-// This ensures SVG <image> embedding works for both PNG and SVG logos
-function logoToPngDataURL(dataURL, naturalW, naturalH) {
+function logoToPng(dataURL, nw, nh) {
   return new Promise((resolve) => {
     const img = new Image();
     img.onload = () => {
-      const scale = Math.min(300 / naturalW, 300 / naturalH);
-      const w = Math.round(naturalW * scale);
-      const h = Math.round(naturalH * scale);
+      const s = Math.min(400/nw, 400/nh);
       const c = document.createElement('canvas');
-      c.width = w; c.height = h;
-      const ctx = c.getContext('2d');
-      ctx.drawImage(img, 0, 0, w, h);
+      c.width = Math.round(nw*s); c.height = Math.round(nh*s);
+      c.getContext('2d').drawImage(img, 0, 0, c.width, c.height);
       resolve(c.toDataURL('image/png'));
     };
-    img.onerror = () => resolve(dataURL); // fallback to original
+    img.onerror = () => resolve(dataURL);
     img.src = dataURL;
   });
 }
 
-function buildSVG(logoPngDataURL) {
-  const matrix = currentMatrix;
-  const n = currentModuleCount;
-  const PAD = 40;
-  const CELL = 10;
-  const SIZE = n * CELL;
-  const TOTAL = SIZE + PAD*2;
-  const fg = state.fgColor;
-  const bg = state.bgColor;
+// ─── SVG builders ─────────────────────────────────────────────────────────────
+function rrPath(x, y, w, h, r) {
+  r = Math.min(r, w/2, h/2);
+  if(r <= 0) return `M${x},${y}h${w}v${h}h${-w}z`;
+  return `M${x+r},${y} h${w-2*r} a${r},${r} 0 0 1 ${r},${r} v${h-2*r} a${r},${r} 0 0 1 ${-r},${r} h${-w+2*r} a${r},${r} 0 0 1 ${-r},${-r} v${-h+2*r} a${r},${r} 0 0 1 ${r},${-r} z`;
+}
+
+// Generates all QR module SVG paths with given top-left offsets
+function qrPaths(offsetX, offsetY, CELL) {
+  const matrix    = currentMatrix, n = currentModuleCount;
+  const fg        = state.fgColor, bg = state.bgColor;
   const cornerRad = (state.cornerR / 100) * CELL * 0.5;
-  const eyeRad    = (state.eyeR / 100) * (7 * CELL * 0.5);
-
-  let paths = [];
-
-  function rrRect(x, y, w, h, r) {
-    r = Math.min(r, w/2, h/2);
-    if(r <= 0) return `M${x},${y}h${w}v${h}h${-w}z`;
-    return `M${x+r},${y} h${w-2*r} a${r},${r} 0 0 1 ${r},${r} v${h-2*r} a${r},${r} 0 0 1 ${-r},${r} h${-w+2*r} a${r},${r} 0 0 1 ${-r},${-r} v${-h+2*r} a${r},${r} 0 0 1 ${r},${-r} z`;
-  }
+  const eyeRad    = (state.eyeR   / 100) * (7 * CELL * 0.5);
+  const parts = [];
 
   function addFinder(r0, c0) {
-    const ox = PAD + c0*CELL, oy = PAD + r0*CELL;
-    const r = eyeRad;
-    paths.push(`<path d="${rrRect(ox,oy,7*CELL,7*CELL,r)}" fill="${fg}"/>`);
-    paths.push(`<path d="${rrRect(ox+CELL,oy+CELL,5*CELL,5*CELL,Math.max(0,r-CELL*0.5))}" fill="${bg}"/>`);
-    paths.push(`<path d="${rrRect(ox+2*CELL,oy+2*CELL,3*CELL,3*CELL,Math.max(0,r-CELL))}" fill="${fg}"/>`);
+    const ox = offsetX + c0*CELL, oy = offsetY + r0*CELL, r = eyeRad;
+    parts.push(`<path d="${rrPath(ox,oy,7*CELL,7*CELL,r)}" fill="${fg}"/>`);
+    parts.push(`<path d="${rrPath(ox+CELL,oy+CELL,5*CELL,5*CELL,Math.max(0,r-CELL*0.5))}" fill="${bg}"/>`);
+    parts.push(`<path d="${rrPath(ox+2*CELL,oy+2*CELL,3*CELL,3*CELL,Math.max(0,r-CELL))}" fill="${fg}"/>`);
   }
-
   addFinder(0,0); addFinder(0,n-7); addFinder(n-7,0);
 
-  for(let r=0; r<n; r++) {
-    for(let c=0; c<n; c++) {
-      if(isFinderPattern(r,c,n)) continue;
-      if(!matrix[r][c]) continue;
-      const x = PAD + c*CELL + 0.5;
-      const y = PAD + r*CELL + 0.5;
-      paths.push(`<path d="${rrRect(x,y,CELL-1,CELL-1,cornerRad)}" fill="${fg}"/>`);
+  for(let r=0; r<n; r++) for(let c=0; c<n; c++) {
+    if(isFinderPattern(r,c,n) || !matrix[r][c]) continue;
+    parts.push(`<path d="${rrPath(offsetX+c*CELL+0.5, offsetY+r*CELL+0.5, CELL-1, CELL-1, cornerRad)}" fill="${fg}"/>`);
+  }
+  return parts;
+}
+
+function svgLogo(logoPng, cx, cy, maxPx) {
+  if(!logoPng || !state.logoNaturalW) return '';
+  const pad = 8;
+  const asp = state.logoNaturalW / state.logoNaturalH;
+  let dw, dh;
+  if(asp >= 1) { dw = maxPx; dh = maxPx / asp; }
+  else         { dh = maxPx; dw = maxPx * asp; }
+  const bw = dw+pad*2, bh = dh+pad*2;
+  return `<rect x="${cx-bw/2}" y="${cy-bh/2}" width="${bw}" height="${bh}" rx="8" fill="${state.bgColor}"/>
+  <image href="${logoPng}" x="${cx-bw/2+pad}" y="${cy-bh/2+pad}" width="${dw}" height="${dh}" preserveAspectRatio="xMidYMid meet"/>`;
+}
+
+function buildStandardSVG(logoPng) {
+  const n = currentModuleCount, PAD=40, CELL=10;
+  const SIZE=n*CELL, TOTAL=SIZE+PAD*2;
+  const cx=PAD+SIZE/2, cy=PAD+SIZE/2;
+  const paths = qrPaths(PAD, PAD, CELL);
+  const logo  = svgLogo(logoPng, cx, cy, SIZE*(state.logoSize/100));
+  return `<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 ${TOTAL} ${TOTAL}" width="${TOTAL}" height="${TOTAL}">
+  <rect width="${TOTAL}" height="${TOTAL}" fill="${state.bgColor}"/>
+  ${paths.join('\n  ')}
+  ${logo}
+</svg>`;
+}
+
+function buildCircularSVG(logoPng) {
+  const n = currentModuleCount, CELL = 10;
+  const SIZE = n * CELL;
+
+  const INNER_PAD = CELL * 1.5;
+  const innerR = Math.ceil(Math.sqrt(2) * (SIZE / 2 + INNER_PAD));
+  const ringW  = state.ringWidth;
+  const outerR = innerR + ringW;
+  const TOTAL  = Math.ceil(outerR * 2) + 8;
+  const cx     = TOTAL / 2, cy = TOTAL / 2;
+
+  const fg        = state.fgColor;
+  const bg        = state.bgColor;
+  const cornerRad = (state.cornerR / 100) * CELL * 0.5;
+
+  // Core QR paths
+  const qrOriginX = cx - SIZE / 2;
+  const qrOriginY = cy - SIZE / 2;
+  const corePaths = qrPaths(qrOriginX, qrOriginY, CELL);
+
+  // Filler dots — uniform ~50% density matching real QR, tiny fade at ring edge only
+  const seed = [...state.url].reduce((a, c) => (a * 31 + c.charCodeAt(0)) >>> 0, 1);
+  function seededRand(i) { let x = Math.sin(seed + i) * 10000; return x - Math.floor(x); }
+
+  const extra = Math.ceil(innerR / CELL) + 2;
+  const fillerPaths = [];
+  let fillerIdx = 0;
+  for(let row = -extra; row < n + extra; row++) {
+    for(let col = -extra; col < n + extra; col++) {
+      if(row >= 0 && row < n && col >= 0 && col < n) continue;
+      const dotCx = qrOriginX + col * CELL + CELL / 2;
+      const dotCy = qrOriginY + row * CELL + CELL / 2;
+      const dist = Math.sqrt((dotCx - cx)**2 + (dotCy - cy)**2);
+      if(dist > innerR - CELL * 0.5) continue;
+      const ringProximity = (innerR - CELL * 0.5 - dist) / CELL;
+      const fade = Math.min(1, ringProximity);
+      const probability = 0.50 * fade;
+      if(seededRand(fillerIdx++) < probability) {
+        const dx = qrOriginX + col*CELL + 0.5, dy = qrOriginY + row*CELL + 0.5;
+        fillerPaths.push(`<path d="${rrPath(dx, dy, CELL-1, CELL-1, cornerRad)}" fill="${fg}"/>`);
+      }
     }
   }
 
-  // Logo in SVG — uses pre-converted PNG data URL for reliable embedding
-  let logoStr = '';
-  if(logoPngDataURL && state.logoNaturalW && state.logoNaturalH) {
-    const logoSize = state.logoSize / 100;
-    const logoPx = SIZE * logoSize;
-    const logoPad = 8;
-    const aspect = state.logoNaturalW / state.logoNaturalH;
-    let dw, dh;
-    if(aspect >= 1) { dw = logoPx; dh = logoPx / aspect; }
-    else            { dh = logoPx; dw = logoPx * aspect; }
-    const boxW = dw + logoPad * 2;
-    const boxH = dh + logoPad * 2;
-    const lx = PAD + (SIZE - boxW) / 2;
-    const ly = PAD + (SIZE - boxH) / 2;
-    logoStr = `<rect x="${lx}" y="${ly}" width="${boxW}" height="${boxH}" rx="8" fill="${bg}"/>
-    <image href="${logoPngDataURL}" x="${lx+logoPad}" y="${ly+logoPad}" width="${dw}" height="${dh}" preserveAspectRatio="xMidYMid meet"/>`;
-  }
+  const logoMaxPx = SIZE * (state.logoSize / 100);
+  const logo = svgLogo(logoPng, cx, cy, logoMaxPx);
 
   return `<?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 ${TOTAL} ${TOTAL}" width="${TOTAL}" height="${TOTAL}">
-  <rect width="${TOTAL}" height="${TOTAL}" fill="${bg}"/>
-  ${paths.join('\n  ')}
-  ${logoStr}
+  <defs>
+    <clipPath id="circClip">
+      <circle cx="${cx}" cy="${cy}" r="${innerR}"/>
+    </clipPath>
+  </defs>
+
+  <!-- Outer ring -->
+  <circle cx="${cx}" cy="${cy}" r="${outerR}" fill="${state.ringColor}"/>
+
+  <!-- Inner background disc -->
+  <circle cx="${cx}" cy="${cy}" r="${innerR}" fill="${bg}"/>
+
+  <!-- Filler dots in corner zones (clipped to inner circle) -->
+  <g clip-path="url(#circClip)">
+    ${fillerPaths.join('\n    ')}
+  </g>
+
+  <!-- Core QR square -->
+  ${corePaths.join('\n  ')}
+
+  <!-- Logo -->
+  ${logo}
 </svg>`;
 }
 </script>
